@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio site inspired by [dahbiahmed.com](https://dahbiahmed.com/) — narrow single-column layout, collapsible sections, light/dark theme, JetBrains Mono throughout.
+Personal portfolio site  — narrow single-column layout, collapsible sections, light/dark theme, JetBrains Mono throughout.
 
 ## Develop
 
