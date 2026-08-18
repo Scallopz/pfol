@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="[Your Name] — Product Designer & Marketer. [One-line bio placeholder.]"
+    />
+    <meta name="author" content="[Your Name]" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>[Your Name] — Product Designer & Marketer</title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var system = window.matchMedia("(prefers-color-scheme: dark)");
+        var theme = stored || (system.matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        system.addEventListener("change", function (e) {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = e.matches
+              ? "dark"
+              : "light";
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="page" id="main-view">
+      <header>
+        <div class="header-top">
+          <div class="avatar-wrap" aria-hidden="true">
+            <!-- Replace with /avatar.png when ready -->
+            <div class="avatar avatar-placeholder">
+              <span>[YN]</span>
+            </div>
+          </div>
+          <button id="theme-toggle" type="button" aria-label="Toggle theme">
+            <span class="icon-light">☀</span>
+            <span class="icon-dark">☾</span>
+          </button>
+        </div>
+
+        <h1>[Your Name]</h1>
+        <p class="tagline">
+          Product Designer &amp; Marketer with
+          <span class="ph">[X+]</span> years of experience. Currently
+          <span class="ph">[Role]</span> at
+          <a href="#" class="ph">[Company]</a>. Previously
+          <a href="#" class="ph">[Previous Company]</a>,
+          <a href="#" class="ph">[Another Company]</a>.
+        </p>
+      </header>
+
+      <main>
+        <details id="about" open>
+          <summary><h2>About</h2></summary>
+          <p>
+            <span class="ph"
+              >[Where you grew up / studied / lived — 1–2 sentences.]</span
+            >
+          </p>
+          <p>
+            These days I
+            <span class="ph">[what you lead or own day-to-day]</span>, and
+            <a href="#work">ship product &amp; brand work</a> across
+            <span class="ph">[domains]</span>. I also
+            <a href="#projects">build things on my own time</a>.
+          </p>
+          <p>
+            Right now I spend most of my time thinking about
+            <span class="ph"
+              >[current focus — e.g. AI-native products, brand systems, growth
+              loops]</span
+            >.
+          </p>
+        </details>
+
+        <details id="experience">
+          <summary><h2>Experience</h2></summary>
+          <div class="career-list">
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">[YYYY–now]</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">[Current Role]</span>
+                <h3><a href="#">[Company]</a></h3>
+                <p>
+                  <span class="ph"
+                    >[What you own, what you shipped, impact metrics.]</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">[YYYY–YYYY]</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">[Role]</span>
+                <h3><a href="#">[Company]</a></h3>
+                <p>
+                  <span class="ph"
+                    >[Scope, team, outcomes — keep to 2–4 sentences.]</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">[YYYY–YYYY]</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">[Role]</span>
+                <h3><a href="#">[Company]</a></h3>
+                <p>
+                  <span class="ph">[Another role placeholder.]</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">[YYYY–YYYY]</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">[Earlier Role]</span>
+                <h3><a href="#">[Company]</a></h3>
+                <p>
+                  <span class="ph"
+                    >[Earlier chapter — agency, startup, freelance, etc.]</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details id="work">
+          <summary><h2>Selected Work</h2></summary>
+          <p>
+            A few projects that show how I think about product, brand, and
+            growth. Replace links and blurbs when ready.
+          </p>
+          <div class="project-list">
+            <a class="project-item" href="#">
+              <strong>[Case Study Title]</strong>
+              <span
+                >[One-line outcome + what you did — product design, brand,
+                GTM.]</span
+              >
+            </a>
+            <a class="project-item" href="#">
+              <strong>[Case Study Title]</strong>
+              <span>[Placeholder description for a second featured project.]</span>
+            </a>
+            <a class="project-item" href="#">
+              <strong>[Case Study Title]</strong>
+              <span>[Placeholder description for a third featured project.]</span>
+            </a>
+            <a class="project-item" href="#">
+              <strong>[Case Study Title]</strong>
+              <span>[Optional fourth project — delete if unused.]</span>
+            </a>
+          </div>
+        </details>
+
+        <details id="services">
+          <summary><h2>How I Work</h2></summary>
+          <p>
+            <span class="ph"
+              >[Short intro — e.g. I partner with founders and teams on product
+              design, brand, and go-to-market.]</span
+            >
+          </p>
+          <div class="advisory-list">
+            <div class="advisory-item">
+              <strong>Product design</strong>
+              <span
+                >[Discovery, IA, interaction design, design systems —
+                placeholder.]</span
+              >
+            </div>
+            <div class="advisory-item">
+              <strong>Brand &amp; narrative</strong>
+              <span
+                >[Positioning, visual identity, messaging — placeholder.]</span
+              >
+            </div>
+            <div class="advisory-item">
+              <strong>Growth &amp; marketing</strong>
+              <span
+                >[Landing systems, campaigns, product-led growth —
+                placeholder.]</span
+              >
+            </div>
+            <div class="advisory-item">
+              <strong>Team &amp; craft</strong>
+              <span
+                >[Design leadership, critiques, hiring — placeholder.]</span
+              >
+            </div>
+          </div>
+          <p class="advisory-cta">
+            Interested?
+            <a href="mailto:[you@email.com]">Let's chat</a>.
+          </p>
+        </details>
+
+        <details id="projects">
+          <summary><h2>Side Projects</h2></summary>
+          <p>
+            <span class="ph"
+              >[I learn by building. These are experiments / personal
+              work:]</span
+            >
+          </p>
+          <div class="project-list">
+            <a class="project-item" href="#">
+              <strong>[Project Name]</strong>
+              <span>[What it is and why you made it.]</span>
+            </a>
+            <a class="project-item" href="#">
+              <strong>[Project Name]</strong>
+              <span>[Another experiment placeholder.]</span>
+            </a>
+            <a class="project-item" href="#">
+              <strong>[Project Name]</strong>
+              <span>[Optional third side project.]</span>
+            </a>
+          </div>
+        </details>
+
+        <details id="reading">
+          <summary><h2>Reading</h2></summary>
+          <p>Books and references that shape how I work.</p>
+          <ul class="books">
+            <li>
+              <span class="ph">[Book Title]</span>
+              <span class="author">— [Author]</span>
+            </li>
+            <li>
+              <span class="ph">[Book Title]</span>
+              <span class="author">— [Author]</span>
+            </li>
+            <li>
+              <span class="ph">[Book Title]</span>
+              <span class="author">— [Author]</span>
+            </li>
+            <li>
+              <span class="ph">[Book Title]</span>
+              <span class="author">— [Author]</span>
+            </li>
+          </ul>
+        </details>
+      </main>
+
+      <button class="help-trigger" id="help-open" type="button">
+        How I can help
+      </button>
+
+      <footer>
+        <a href="https://twitter.com/[handle]" target="_blank" rel="noopener"
+          >Twitter</a
+        >
+        <a
+          href="https://www.linkedin.com/in/[handle]"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a href="mailto:[you@email.com]">Email</a>
+        <a href="#" class="ph">[Resume / CV]</a>
+      </footer>
+    </div>
+
+    <div class="help-view" id="help-view" hidden>
+      <button class="help-back" id="help-back" type="button" aria-label="Back">
+        ←
+      </button>
+      <div class="help-content">
+        <h2 class="help-title">Things I can help with</h2>
+        <div class="help-avatar" aria-hidden="true">
+          <div class="avatar avatar-placeholder avatar-lg">
+            <span>[YN]</span>
+          </div>
+        </div>
+        <div class="help-buttons" role="tablist" aria-label="Help topics">
+          <button
+            class="help-btn active"
+            type="button"
+            data-topic="design"
+            role="tab"
+            aria-selected="true"
+          >
+            Product Design
+          </button>
+          <button
+            class="help-btn"
+            type="button"
+            data-topic="brand"
+            role="tab"
+            aria-selected="false"
+          >
+            Brand
+          </button>
+          <button
+            class="help-btn"
+            type="button"
+            data-topic="growth"
+            role="tab"
+            aria-selected="false"
+          >
+            Growth
+          </button>
+        </div>
+        <p class="help-subtitle is-visible" id="help-subtitle">
+          [Placeholder — how you help with product design: discovery, UX,
+          systems, shipping.]
+        </p>
+        <a class="help-contact" href="mailto:[you@email.com]">Contact me</a>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
