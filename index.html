@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aditya Sharma — Head of Design and Marketing at Armory. Product designer, marketer, and copywriter. Formerly VIDA, Prodigy, and Slice."
+    />
+    <meta name="author" content="Aditya Sharma" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      Aditya Sharma — Head of Design &amp; Marketing at Armory
+    </title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var system = window.matchMedia("(prefers-color-scheme: dark)");
+        var theme = stored || (system.matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        system.addEventListener("change", function (e) {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = e.matches
+              ? "dark"
+              : "light";
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-base"></div>
+      <div class="ambient-orb ambient-orb--a"></div>
+      <div class="ambient-orb ambient-orb--b"></div>
+      <div class="ambient-orb ambient-orb--c"></div>
+      <div class="ambient-orb ambient-orb--d"></div>
+      <div class="ambient-noise"></div>
+    </div>
+
+    <div class="page" id="main-view">
+      <header>
+        <div class="header-top">
+          <div class="avatar-wrap">
+            <img
+              class="avatar"
+              src="/avatar.png"
+              alt="Aditya Sharma"
+              width="120"
+              height="120"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid'"
+            />
+            <div class="avatar avatar-placeholder" style="display: none">
+              <span>AS</span>
+            </div>
+          </div>
+          <button id="theme-toggle" type="button" aria-label="Toggle theme">
+            <span class="icon-light">☀</span>
+            <span class="icon-dark">☾</span>
+          </button>
+        </div>
+
+        <h1>Aditya Sharma</h1>
+        <p class="tagline">
+          Head of Design and Marketing at
+          <a href="https://armory.in" target="_blank" rel="noopener">Armory</a>
+          (founding employee; youngest defence company to net $10M+ orders from
+          the Ministry of Defence). Previously Product Design Head at
+          <a href="https://vida.id" target="_blank" rel="noopener">VIDA</a>,
+          SPD&nbsp;III at
+          <a href="https://www.prodigygame.com" target="_blank" rel="noopener"
+            >Prodigy</a
+          >, Design Manager at
+          <a href="https://sliceit.com" target="_blank" rel="noopener">Slice</a>.
+          Marketer, designer, copywriter.
+        </p>
+      </header>
+
+      <main>
+        <details id="about" open>
+          <summary><h2>About</h2></summary>
+          <p>
+            I grew up in Bombay and studied computers. Back in college, I taught
+            myself to illustrate, draw, and paint from books. Got a job at a
+            call center where I wrote thousands of emails turning angry
+            customers into friendly ones. That knack for writing grew into a
+            massive Twitter following — 25,000 by 2013 — which got me my first
+            design-adjacent hire. Every job since has been the same trade: bring
+            marketing horsepower, ask to be let into product.
+          </p>
+          <p>
+            At HolidayIQ with no budget, I DM’d two thousand historians on
+            Twitter, one at a time, asking which forgotten heritage site they’d
+            want saved. It won us Kerala Tourism. At upGrad, a line I wrote —
+            “Machines are learning, are you?” — sold ₹2 crore of data science
+            courses. At Slice, I told the CEO I’d fix marketing first if he
+            handed me design after. He agreed. The first product call I pushed
+            was killing the envelope the credit card shipped in — 500 test units
+            in iPhone-style unboxing, YouTube coverage that’s still up, and
+            Slice never went back. I left as design manager: eight reports, one
+            million installs.
+          </p>
+          <p>
+            Prodigy and VIDA kept the same pattern. These days I’m building
+            <a href="https://armory.in" target="_blank" rel="noopener">Armory</a>
+            — India’s best homegrown counter-drone company — where I lead design
+            and marketing from day one. I also
+            <a href="#projects">build things on my own time</a>.
+          </p>
+        </details>
+
+        <details id="experience">
+          <summary><h2>Experience</h2></summary>
+          <div class="career-list">
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2024–now</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title"
+                  >Head of Marketing and Design</span
+                >
+                <h3>
+                  <a href="https://armory.in" target="_blank" rel="noopener"
+                    >Armory</a
+                  >
+                </h3>
+                <p>
+                  First employee. Built the design, marketing, and hiring
+                  foundation — brand identity, positioning, product UX, website,
+                  marketing assets across every touchpoint, and content systems.
+                  Led field-level product evangelism at defence expos for senior
+                  Army and defence officials, contributing to
+                  <strong>₹150Cr ($18M+)</strong> in procurement contracts.
+                  Helped scale the company from 0 to 10 employees and shaped
+                  early product direction.
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2022–2024</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">Lead Product Designer</span>
+                <h3>
+                  <a href="https://vida.id" target="_blank" rel="noopener"
+                    >VIDA</a
+                  >
+                </h3>
+                <p>
+                  Led overall design of a self-serve platform that generated
+                  over <strong>USD $20M</strong> in revenue. Built the design
+                  system from the ground up and established the UX tone of voice
+                  across products.
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2020–2022</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">Senior Product Designer</span>
+                <h3>
+                  <a
+                    href="https://www.prodigygame.com"
+                    target="_blank"
+                    rel="noopener"
+                    >Prodigy Game</a
+                  >
+                </h3>
+                <p>
+                  Designed the company’s first international-market mobile app
+                  and redesigned the teacher assignment workflow — NPS from
+                  <strong>52% → 90%</strong>, assignments from ~2/week to
+                  <strong>15+</strong> per teacher. Established a design system
+                  and rebuilt the internal math-question authoring tool,
+                  increasing output from 12 to <strong>50+</strong> questions
+                  per week. Led UX research that informed 15+
+                  revenue-impacting features.
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2018–2020</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title"
+                  >Product Designer → Design Lead</span
+                >
+                <h3>
+                  <a href="https://sliceit.com" target="_blank" rel="noopener"
+                    >Slice</a
+                  >
+                </h3>
+                <p>
+                  Led a complete redesign of the Android and web apps,
+                  contributing to <strong>10M+</strong> total installs. Managed
+                  a team of 6 designers across product and marketing — online
+                  and offline campaigns, Instagram 0 → 12,000 in five months.
+                  Designed and prototyped product features in 2019 that shipped
+                  in 2023, shaping the long-term roadmap.
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2017–2018</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">Content Design Manager</span>
+                <h3>
+                  <a href="https://www.upgrad.com" target="_blank" rel="noopener"
+                    >upGrad</a
+                  >
+                </h3>
+                <p>
+                  Supported sales and marketing contributing to
+                  <strong>2,000+</strong> lead conversions and
+                  <strong>₹150M ($1.8M+)</strong> in revenue. Scaled digital
+                  audience to <strong>300K+</strong> combined followers —
+                  Instagram to 50K, YouTube to 2.5M+ views. Wrote
+                  high-performing ad copy used as campaign assets for 3–4 years
+                  after launch.
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2015–2017</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">Social Media Designer</span>
+                <h3>HolidayIQ</h3>
+                <p>
+                  Design and social for travel discovery. Ran a zero-budget
+                  historian outreach campaign that won Kerala Tourism.
+                </p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2013–2015</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">Visual Designer</span>
+                <h3>Allure</h3>
+                <p>Visual design across brand and digital surfaces.</p>
+              </div>
+            </div>
+
+            <div class="career-item">
+              <div class="career-meta">
+                <span class="career-date">2010–2013</span>
+              </div>
+              <div class="career-details">
+                <span class="career-title">Web Solutions Specialist</span>
+                <h3>
+                  <a href="https://www.directi.com" target="_blank" rel="noopener"
+                    >Directi</a
+                  >
+                </h3>
+                <p>Web solutions and early product work that started the path.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details id="work">
+          <summary><h2>Selected Work</h2></summary>
+          <p>
+            A few projects that show how product, brand, and growth pull the
+            same rope.
+          </p>
+          <div class="project-list">
+            <a
+              class="project-item"
+              href="/work/winning-100cr-order.html"
+            >
+              <strong>Winning a ₹100Cr order with no paid marketing</strong>
+              <span
+                >Raised Armory’s marketing from 0 to present day — field
+                evangelism, narrative, and assets that helped land Ministry of
+                Defence procurement.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="/work/vida-self-serve.html"
+            >
+              <strong
+                >Turning a service into a product enterprises actually use</strong
+              >
+              <span
+                >Redesigned VIDA’s verification into a Solutions Builder
+                Platform. 800 of 1,100 invited enterprises now use it.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="/work/slice-credit-card.html"
+            >
+              <strong
+                >Turning a credit card into a shareable product experience</strong
+              >
+              <span
+                >Launched Slice’s credit card with an organic viral unboxing
+                strategy — and killed the shipping envelope forever.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="/work/slice-trust-activation.html"
+            >
+              <strong
+                >Designing Trust &amp; Activation in a Credit Product</strong
+              >
+              <span
+                >Research-driven overhaul of Slice’s onboarding and core UX —
+                50k → 1M users in a year post launch.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="/work/prodigy-authoring.html"
+            >
+              <strong
+                >Cutting math question production time from 5 minutes to 1</strong
+              >
+              <span
+                >Redesigned Prodigy’s authoring tool so content teams could ship
+                curriculum-aligned questions in under a minute — 12 → 50+ per
+                week.</span
+              >
+            </a>
+          </div>
+        </details>
+
+        <details id="writings">
+          <summary><h2>Writings</h2></summary>
+          <p>Notes on craft, management, and building.</p>
+          <div class="project-list">
+            <a
+              class="project-item"
+              href="/writing/best-managers-never-stop-being-ics.html"
+            >
+              <strong>The best managers never stop being ICs</strong>
+              <span
+                >The best managers I’ve worked with never really stopped being
+                individual contributors — and that changes how you lead.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="/writing/design-and-marketing-sisyphus.html"
+            >
+              <strong
+                >Design and Marketing will always be Sisyphus's boulder</strong
+              >
+              <span
+                >Camus, the absurd, and why design and marketing never get a
+                clean 0 or 1.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="/writing/zero-budget-brand-building-playbook.html"
+            >
+              <strong>Zero-Budget Brand Building Playbook</strong>
+              <span
+                >How to build trust and inbound without paid spend — narrative,
+                consistency, and clarity.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="/writing/defence-expo-outreach-playbook.html"
+            >
+              <strong>Defence Expo Outreach Playbook</strong>
+              <span
+                >A system for finding decision-makers on a chaotic expo floor —
+                and turning conversations into contracts.</span
+              >
+            </a>
+          </div>
+        </details>
+
+        <details id="services">
+          <summary><h2>How I Work</h2></summary>
+          <p>
+            I design for the buyer and the audience, and they’re almost never
+            the same person. The defence procurement officer and the defence
+            enjoyer on Twitter both matter to Armory, and they need different
+            design. Founders often pick one and lose the other. I’ve spent a
+            career refusing to.
+          </p>
+          <p>
+            Marketing and product design are the same function pretending to be
+            two. How someone hears about a product shapes what they expect from
+            it, which shapes what it needs to be. Splitting the two into
+            different orgs is how you get brands that feel like the product lied
+            to you. I’ve run both because I don’t think they should be run
+            separately.
+          </p>
+          <div class="advisory-list">
+            <div class="advisory-item">
+              <strong>Product design</strong>
+              <span
+                >End-to-end product UX for complex buyers — systems, flows, and
+                the craft that makes enterprises actually use what you ship.</span
+              >
+            </div>
+            <div class="advisory-item">
+              <strong>Brand &amp; narrative</strong>
+              <span
+                >Positioning, identity, and copy that hold up in a procurement
+                room and on a timeline.</span
+              >
+            </div>
+            <div class="advisory-item">
+              <strong>Growth &amp; marketing</strong>
+              <span
+                >Zero-to-one marketing engines, field evangelism, and organic
+                moments that compound without paid spend.</span
+              >
+            </div>
+            <div class="advisory-item">
+              <strong>Team &amp; craft</strong>
+              <span
+                >Building design + marketing foundations as a founding hire —
+                hiring, systems, and the tone of voice a company grows into.</span
+              >
+            </div>
+          </div>
+          <p class="advisory-cta">
+            Interested?
+            <a href="mailto:icaditya@hotmail.com">Let's chat</a>.
+          </p>
+        </details>
+
+        <details id="projects">
+          <summary><h2>Side Projects</h2></summary>
+          <p>Things I build when the day job isn’t enough.</p>
+          <div class="project-list">
+            <a
+              class="project-item"
+              href="https://mondplan.nl"
+              target="_blank"
+              rel="noopener"
+            >
+              <strong>Mondplan</strong>
+              <span
+                >Completely redesigned how dentists and patients interact. One
+                of the fastest-growing Dutch healthcare–patient platforms.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="https://wilderworld.com/market"
+              target="_blank"
+              rel="noopener"
+            >
+              <strong>Wilder World Market</strong>
+              <span
+                >Designed the collectibles marketplace for Wilder World.</span
+              >
+            </a>
+            <a
+              class="project-item"
+              href="https://maanind.vercel.app/"
+              target="_blank"
+              rel="noopener"
+            >
+              <strong>मानिंद</strong>
+              <span
+                >Building a database from a book club I run — every
+                recommendation and debate summary.</span
+              >
+            </a>
+          </div>
+        </details>
+
+        <details id="reading">
+          <summary><h2>Reading</h2></summary>
+          <p>
+            Books I’m reading right now. Drag the shelf to browse, click a book
+            to pick it up.
+          </p>
+
+          <div class="shelf-experience" id="shelf-experience">
+            <div class="shelf-stage" id="shelf-stage">
+              <button
+                type="button"
+                class="shelf-nav shelf-nav--left"
+                id="shelf-left"
+                aria-label="Previous book"
+              >
+                ←
+              </button>
+
+              <div class="shelf-stack" id="shelf-stack" aria-live="polite"></div>
+
+              <button
+                type="button"
+                class="shelf-nav shelf-nav--right"
+                id="shelf-right"
+                aria-label="Next book"
+              >
+                →
+              </button>
+
+              <div class="shelf-caption">
+                <div class="shelf-counter" id="shelf-counter">01 / 06</div>
+                <h3 class="shelf-title" id="shelf-title"></h3>
+                <p class="shelf-author" id="shelf-author"></p>
+                <button type="button" class="shelf-inspect" id="shelf-inspect">
+                  Inspect <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+
+              <div
+                class="shelf-ticks"
+                id="shelf-ticks"
+                role="tablist"
+                aria-label="Books"
+              ></div>
+            </div>
+
+            <div class="shelf-inspect-view" id="shelf-inspect-view" hidden>
+              <div class="inspect-viewer">
+                <div
+                  class="inspect-book book3d book3d--lg"
+                  id="inspect-book"
+                  tabindex="0"
+                  aria-label="Drag to orbit book"
+                >
+                  <div class="book3d-face book3d-cover">
+                    <img id="inspect-cover" src="" alt="" />
+                  </div>
+                  <div class="book3d-face book3d-spine" id="inspect-spine"></div>
+                  <div class="book3d-face book3d-pages" aria-hidden="true"></div>
+                  <div class="book3d-face book3d-back" aria-hidden="true"></div>
+                </div>
+                <p class="inspect-hint">
+                  drag to orbit · scroll to zoom · esc to close
+                </p>
+              </div>
+              <div class="inspect-panel">
+                <button type="button" class="inspect-back" id="inspect-back">
+                  ← Back to shelf
+                </button>
+                <h3 class="inspect-title" id="inspect-title"></h3>
+                <p class="inspect-author" id="inspect-author"></p>
+                <p class="inspect-summary" id="inspect-summary"></p>
+                <a
+                  class="inspect-goodreads"
+                  id="inspect-goodreads"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  >View on Goodreads <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <ul class="books books-fallback sr-only" id="books-fallback"></ul>
+        </details>
+      </main>
+
+      <footer>
+        <a
+          href="https://twitter.com/designopine"
+          target="_blank"
+          rel="noopener"
+          >Twitter</a
+        >
+        <a
+          href="https://www.linkedin.com/in/sharmaditya/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a href="mailto:icaditya@hotmail.com">Email</a>
+        <a
+          href="https://drive.google.com/file/d/1DPHMVjCUaFfwxgf2EcD5NI_ljJQa3mrT/view"
+          target="_blank"
+          rel="noopener"
+          >Resume</a
+        >
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

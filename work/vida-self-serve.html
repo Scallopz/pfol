@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Turning a service into a product enterprises actually use — Aditya Sharma on VIDA"
+    />
+    <meta name="author" content="Aditya Sharma" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      Turning a service into a product enterprises actually use — Aditya Sharma
+    </title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var system = window.matchMedia("(prefers-color-scheme: dark)");
+        var theme = stored || (system.matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-base"></div>
+      <div class="ambient-orb ambient-orb--a"></div>
+      <div class="ambient-orb ambient-orb--b"></div>
+      <div class="ambient-orb ambient-orb--c"></div>
+      <div class="ambient-orb ambient-orb--d"></div>
+      <div class="ambient-noise"></div>
+    </div>
+
+    <article class="page article" data-case-study="vida-self-serve">
+      <header class="article-top">
+        <a class="article-back" href="/#work">← Selected Work</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="icon-light">☀</span>
+          <span class="icon-dark">☾</span>
+        </button>
+      </header>
+
+      <p class="article-kicker">Selected Work · VIDA</p>
+      <h1>Turning a service into a product enterprises actually use</h1>
+      <p class="article-dek">
+        Redesigned VIDA’s verification offering into a configurable Solutions
+        Builder Platform — 800 of 1,100 invited customers actively using it.
+      </p>
+
+      <div class="article-body">
+        <h2>TLDR</h2>
+        <p>
+          Redesigned VIDA’s verification offering into a configurable Solutions
+          Builder Platform that gave enterprise clients full control over UX,
+          workflows, and analytics, addressing key issues where clients had to
+          expose VIDA’s flows and lacked visibility into user drop-offs. The
+          platform enabled businesses to customize verification logic within
+          their own onboarding experience while tracking performance through
+          analytics, aligned with a tiered revenue model. This shift transformed
+          VIDA from a service into a scalable product, resulting in strong
+          adoption with 800 of 1100 invited customers actively using the
+          platform.
+        </p>
+
+        <h2>Context</h2>
+        <p>
+          VIDA provides identity verification infrastructure for businesses
+          across sectors: from banks and telecom networks to marketplaces and
+          the level of verification varies by use case.
+        </p>
+        <p>
+          For example, a bank may require full identity and document
+          verification, while a food delivery platform may only need lighter
+          checks for onboarding delivery partners.
+        </p>
+
+        <h2>Decisions that mattered</h2>
+        <p>Enterprise clients needed more than just verification.</p>
+        <p>They faced two key issues:</p>
+        <ul>
+          <li>
+            <strong>Lack of control over UX</strong> — Users were redirected
+            into VIDA’s flows during onboarding, breaking the host product
+            experience.
+          </li>
+          <li>
+            <strong>Limited visibility into drop-offs</strong> — Clients
+            couldn’t clearly understand where users failed verification or why.
+          </li>
+        </ul>
+        <p>
+          This created friction in onboarding and limited their ability to
+          optimize conversion. Through user research and client conversations, I
+          identified the need for a <strong>configurable system</strong>, not
+          just a service.
+        </p>
+        <p>
+          Along with the exec team, I proposed building a
+          <strong>Solutions Builder Platform</strong> that would allow clients
+          to customize verification flows, retain control over user experience
+          and access analytics to understand drop-offs and performance.
+        </p>
+
+        <h2>Solution</h2>
+        <p>
+          I led the redesign and development of VIDA’s offering into a
+          <strong>self-serve platform</strong> that allowed users to:
+        </p>
+        <ul>
+          <li>
+            <strong>Configure verification workflows</strong> — A SIM card
+            provider and a food delivery app, both can define what they wish to
+            verify.
+          </li>
+          <li>
+            <strong>Seamless integration within client UX</strong> — Add your
+            own UI and UX to the flow without the user having to leave their
+            platform.
+          </li>
+          <li>
+            <strong>Analytics dashboards</strong> for tracking user behavior and
+            drop-offs — Know what happens at what stage: did your user drop off
+            at ID verification or face ID?
+          </li>
+          <li>
+            <strong>Tiered pricing</strong> aligned with customization and
+            usage — Pay as you use, straightforward pricing.
+          </li>
+        </ul>
+      </div>
+
+      <div class="article-actions">
+        <a
+          class="case-cta"
+          href="https://www.figma.com/design/NeAsDIl4uqq3dhhryREGjE/VIDA-SSP-UI?node-id=99-947&t=OloiFjZT1ebnJLh6-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          >View in Figma <span aria-hidden="true">↗</span></a
+        >
+      </div>
+
+      <footer class="article-footer">
+        <a href="/#work">← Back to selected work</a>
+        <a href="mailto:icaditya@hotmail.com">Email</a>
+      </footer>
+    </article>
+
+    <script type="module" src="/src/page.js"></script>
+  </body>
+</html>

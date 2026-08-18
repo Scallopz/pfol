@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cutting math question production time from 5 minutes to 1 — Aditya Sharma on Prodigy"
+    />
+    <meta name="author" content="Aditya Sharma" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      Cutting math question production time from 5 minutes to 1 — Aditya Sharma
+    </title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var system = window.matchMedia("(prefers-color-scheme: dark)");
+        var theme = stored || (system.matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-base"></div>
+      <div class="ambient-orb ambient-orb--a"></div>
+      <div class="ambient-orb ambient-orb--b"></div>
+      <div class="ambient-orb ambient-orb--c"></div>
+      <div class="ambient-orb ambient-orb--d"></div>
+      <div class="ambient-noise"></div>
+    </div>
+
+    <article class="page article" data-case-study="prodigy-authoring">
+      <header class="article-top">
+        <a class="article-back" href="/#work">← Selected Work</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="icon-light">☀</span>
+          <span class="icon-dark">☾</span>
+        </button>
+      </header>
+
+      <p class="article-kicker">Selected Work · Prodigy</p>
+      <h1>Cutting math question production time from 5 minutes to 1</h1>
+      <p class="article-dek">
+        Redesigned Prodigy’s internal authoring tool so content teams could
+        ship curriculum-aligned questions in under a minute — scaling output
+        from ~12 to 50+ questions per week.
+      </p>
+
+      <div class="article-body">
+        <h2>TLDR</h2>
+        <p>
+          Redesigned Prodigy’s internal math question authoring tool to support
+          complex problem creation and streamline content workflows, addressing
+          limitations that restricted question difficulty and slowed production.
+          Introduced structured templates and a clearer creation flow, enabling
+          content teams to generate curriculum-aligned questions in under a
+          minute while reducing cognitive load. Grounded in workflow analysis
+          and domain understanding, the system improved both usability and
+          consistency of content. This led to a significant increase in output,
+          scaling production from ~12 to 50+ questions per week.
+        </p>
+
+        <h2>Decisions that mattered</h2>
+        <p>
+          Prodigy’s internal question creation tool had grown organically as the
+          product expanded. The workflow for creating math questions was
+          fragmented and inefficient, making it difficult for the content team
+          to produce curriculum-aligned questions at the scale required by the
+          platform. The previously built tool catered to a North American
+          audience which learns at a different pace than Indian students.
+        </p>
+        <p>
+          Students wanted difficult questions and I offered to redesign and
+          revamp the tool so that content creation is simplified, faster and the
+          team can create more difficult questions that students love to solve.
+        </p>
+        <p>Content creators faced several issues:</p>
+        <ul>
+          <li>
+            The workflow was <strong>complex and unintuitive</strong>.
+          </li>
+          <li>
+            The question structure was inconsistent — for example, a “draw a
+            line” option was available but there was no option to hide multiple
+            numbers on a line.
+          </li>
+          <li>
+            Question structures varied too much, with limited editing and review
+            tools.
+          </li>
+          <li>This left them with slow content production cycles.</li>
+        </ul>
+
+        <h2>Process</h2>
+        <p>
+          I worked closely with the content and product teams to understand how
+          questions were authored and reviewed. Then, I opened maths textbooks
+          from grade 4 until grade 10 — solved questions myself over a week and
+          tried to understand how a question is formed. How exactly is a
+          triangle made to ask a triangle-based question?
+        </p>
+        <p>
+          Once I understood the basics of how a math question itself is written,
+          I simplified the entire process such that there is a certain level of
+          automation embedded into the process and the options allow
+          customisation to such an extent that content creators can make dozens
+          of questions out of a single topic. Isosceles triangle? Single click
+          to make the triangle, hide any side, any angle, submit and done.
+        </p>
+        <p>
+          I redesigned the internal authoring platform and introduced a
+          structured system for creating math questions.
+        </p>
+
+        <h2>Impact</h2>
+        <p>
+          The redesigned workflow significantly improved the team’s ability to
+          create content at scale.
+        </p>
+
+        <h2>Results</h2>
+        <ul>
+          <li>
+            Question production increased from
+            <strong>12 to 50+ questions per week</strong>
+          </li>
+          <li>
+            Improved consistency and quality across curriculum content
+          </li>
+          <li>Faster turnaround for new math content used in the game</li>
+        </ul>
+        <p>
+          Over 3–6 months, 72% of students solved more difficult math questions
+          than they had before.
+        </p>
+      </div>
+
+      <div class="article-actions">
+        <a
+          class="case-cta"
+          href="https://pitch.com/v/building-better-math-questions-in-prodigy-gtbefv/b6cc3e3e-65ca-4ae4-bc5c-97ddc9e161eb"
+          target="_blank"
+          rel="noopener noreferrer"
+          >View detailed case study <span aria-hidden="true">↗</span></a
+        >
+      </div>
+
+      <footer class="article-footer">
+        <a href="/#work">← Back to selected work</a>
+        <a href="mailto:icaditya@hotmail.com">Email</a>
+      </footer>
+    </article>
+
+    <script type="module" src="/src/page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Turning a credit card into a shareable product experience — Aditya Sharma"
+    />
+    <meta name="author" content="Aditya Sharma" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      Turning a credit card into a shareable product experience — Aditya Sharma
+    </title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var system = window.matchMedia("(prefers-color-scheme: dark)");
+        var theme = stored || (system.matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-base"></div>
+      <div class="ambient-orb ambient-orb--a"></div>
+      <div class="ambient-orb ambient-orb--b"></div>
+      <div class="ambient-orb ambient-orb--c"></div>
+      <div class="ambient-orb ambient-orb--d"></div>
+      <div class="ambient-noise"></div>
+    </div>
+
+    <article class="page article" data-case-study="slice-credit-card">
+      <header class="article-top">
+        <a class="article-back" href="/#work">← Selected Work</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="icon-light">☀</span>
+          <span class="icon-dark">☾</span>
+        </button>
+      </header>
+
+      <p class="article-kicker">Selected Work · Slice</p>
+      <h1>Turning a credit card into a shareable product experience</h1>
+      <p class="article-dek">
+        Launched Slice’s credit card with an organic viral unboxing strategy —
+        and killed the shipping envelope forever.
+      </p>
+
+      <div class="article-body">
+        <p>
+          Making a financial product feel personal, visual, and worth sharing —
+          not just something you keep in a wallet. The detailed case study
+          covers the full story.
+        </p>
+      </div>
+
+      <div class="article-actions">
+        <a
+          class="case-cta"
+          href="https://pitch.com/v/making-credit-cards-beautiful-again-hefw8k"
+          target="_blank"
+          rel="noopener noreferrer"
+          >View detailed case study <span aria-hidden="true">↗</span></a
+        >
+      </div>
+
+      <footer class="article-footer">
+        <a href="/#work">← Back to selected work</a>
+        <a href="mailto:icaditya@hotmail.com">Email</a>
+      </footer>
+    </article>
+
+    <script type="module" src="/src/page.js"></script>
+  </body>
+</html>

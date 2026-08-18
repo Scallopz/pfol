@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The best managers never stop being ICs — Aditya Sharma"
+    />
+    <meta name="author" content="Aditya Sharma" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>The best managers never stop being ICs — Aditya Sharma</title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var system = window.matchMedia("(prefers-color-scheme: dark)");
+        var theme = stored || (system.matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-base"></div>
+      <div class="ambient-orb ambient-orb--a"></div>
+      <div class="ambient-orb ambient-orb--b"></div>
+      <div class="ambient-orb ambient-orb--c"></div>
+      <div class="ambient-orb ambient-orb--d"></div>
+      <div class="ambient-noise"></div>
+    </div>
+
+    <article class="page article">
+      <header class="article-top">
+        <a class="article-back" href="/#writings">← Writings</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="icon-light">☀</span>
+          <span class="icon-dark">☾</span>
+        </button>
+      </header>
+
+      <p class="article-kicker">Writing</p>
+      <h1>The best managers never stop being ICs</h1>
+
+      <div class="article-body">
+        <p>
+          The first time I was asked to lead a team in 2017, I wasn’t excited. I
+          was slightly uneasy. Not because of the extra responsibility, but
+          because of what it might turn me into. I kept thinking, “Is this where
+          I stop doing actual work and just start telling other people what to
+          do?”
+        </p>
+        <p>
+          I’ve been lucky with managers. Some of them were genuinely exceptional.
+          Not just at their craft, but at managing people. And I’ve also seen the
+          opposite end of this spectrum. Incredibly talented people who were
+          unbearable to work with. Being good at what you do and being a good
+          manager are very different things.
+        </p>
+        <p>
+          When I thought about the best managers I’ve worked with, one thing
+          stood out. They never really stopped being individual contributors.
+          They were still involved in the work. Not superficially, but enough to
+          stay grounded and that changes how you manage.
+        </p>
+        <p>
+          When you’re still doing the work, your expectations are realistic. You
+          know how long things take, where things can go wrong, and what “good”
+          actually looks like. A manager who hasn’t touched Blender in years will
+          ask for hard surface model of a tank in 3 hours, a request that don’t
+          make sense. Someone who still uses it won’t.
+        </p>
+        <p>
+          There’s also a different kind of respect that comes with it. Teams can
+          tell when you understand the work. You can’t be easily bluffed, and
+          you’re not giving feedback from a distance. It creates accountability
+          without forcing it.
+        </p>
+        <p>
+          Somewhere along the way, management started being treated like an
+          upgrade. Like you’ve moved on from doing the work. I don’t think that’s
+          true. The best managers I’ve seen never really moved on. I haven't
+          moved on. They just expanded what they were responsible for.
+        </p>
+        <p>
+          This approach probably doesn’t scale perfectly. At some point, you’ll
+          spend more time coordinating than contributing. But completely
+          disconnecting from the craft feels worse. At that point, you’re no
+          longer managing the work, you’re managing an idea of it.
+        </p>
+        <p>
+          If I ever reach a point where I’m only filling out performance sheets
+          and not contributing meaningfully to the work, I’ll know I’ve drifted
+          too far.
+        </p>
+      </div>
+
+      <div class="article-actions">
+        <button type="button" class="share-btn" data-share>Share</button>
+      </div>
+
+      <footer class="article-footer">
+        <a href="/#writings">← Back to writings</a>
+        <a href="mailto:icaditya@hotmail.com">Email</a>
+      </footer>
+    </article>
+
+    <script type="module" src="/src/page.js"></script>
+  </body>
+</html>
