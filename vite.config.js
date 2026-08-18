@@ -14,6 +14,18 @@ export default defineConfig({
           __dirname,
           "writing/best-managers-never-stop-being-ics.html",
         ),
+        writingSisyphus: resolve(
+          __dirname,
+          "writing/design-and-marketing-sisyphus.html",
+        ),
+        writingZeroBudget: resolve(
+          __dirname,
+          "writing/zero-budget-brand-building-playbook.html",
+        ),
+        writingDefenceExpo: resolve(
+          __dirname,
+          "writing/defence-expo-outreach-playbook.html",
+        ),
         workArmory: resolve(__dirname, "work/winning-100cr-order.html"),
         workVida: resolve(__dirname, "work/vida-self-serve.html"),
         workSlice: resolve(__dirname, "work/slice-credit-card.html"),
