@@ -174,12 +174,32 @@ function renderTicks() {
   });
 }
 
+function bookMesh(book, { spineOnly = false } = {}) {
+  if (spineOnly) {
+    return `<div class="book3d"><div class="book3d-face book3d-spine">${book.title}</div></div>`;
+  }
+  return `<div class="book3d">
+    <div class="book3d-face book3d-cover"><img src="${book.cover}" alt="" /></div>
+    <div class="book3d-face book3d-spine">${book.title}</div>
+    <div class="book3d-face book3d-pages" aria-hidden="true"></div>
+    <div class="book3d-face book3d-back" aria-hidden="true"></div>
+  </div>`;
+}
+
 function renderShelf() {
   if (!shelfStack) return;
   const total = BOOKS.length;
   index = ((index % total) + total) % total;
 
-  shelfStack.innerHTML = "";
+  shelfStack.innerHTML = '<div class="shelf-floor" aria-hidden="true"></div>';
+
+  // Featured on left of center, spines continue to the right — whole cluster centered
+  const spineStep = 2.85; // rem
+  const featuredWidth = 12.5;
+  const visibleSpines = Math.min(4, total - 1);
+  const clusterWidth = featuredWidth + visibleSpines * spineStep;
+  const featuredLeft = -clusterWidth / 2; // rem from center
+
   BOOKS.forEach((book, i) => {
     const el = document.createElement("button");
     el.type = "button";
@@ -193,21 +213,27 @@ function renderShelf() {
 
     if (relative === 0) {
       el.classList.add("is-active");
-      el.innerHTML = `<img class="shelf-book-cover" src="${book.cover}" alt="" />`;
-      el.style.zIndex = "20";
-      el.style.transform = "translateX(0) translateZ(36px) rotateY(-6deg)";
-    } else if (relative <= 4) {
+      el.innerHTML = bookMesh(book);
+      el.style.zIndex = "30";
+      el.style.marginLeft = "0";
+      el.style.transform = `translateX(${featuredLeft}rem)`;
+    } else if (relative <= visibleSpines) {
       el.classList.add("is-behind");
-      el.innerHTML = `<span class="shelf-book-spine">${book.title}</span>`;
-      el.style.zIndex = String(15 - relative);
-      const x = 10.2 + (relative - 1) * 2.35;
+      el.innerHTML = bookMesh(book, { spineOnly: true });
+      el.style.zIndex = String(20 - relative);
+      const x = featuredLeft + featuredWidth + 0.35 + (relative - 1) * spineStep;
       el.style.transform = `translateX(${x}rem)`;
     } else {
       el.classList.add("is-hidden");
       el.hidden = true;
     }
 
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (event) => {
+      if (shelfMoved) {
+        event.preventDefault();
+        return;
+      }
+      event.stopPropagation();
       if (relative === 0) {
         openInspect();
       } else {
@@ -238,15 +264,16 @@ function openInspect() {
     inspectCover.src = book.cover;
     inspectCover.alt = book.title;
   }
+  const spine = document.getElementById("inspect-spine");
+  if (spine) spine.textContent = book.title;
+  if (inspectBook) inspectBook.style.setProperty("--spine", book.spine);
   if (inspectTitle) inspectTitle.textContent = book.title;
   if (inspectAuthor) inspectAuthor.textContent = book.author;
   if (inspectSummary) inspectSummary.textContent = book.summary;
-  if (inspectGoodreads) {
-    inspectGoodreads.href = book.goodreads;
-  }
+  if (inspectGoodreads) inspectGoodreads.href = book.goodreads;
 
-  orbitX = 10;
-  orbitY = -20;
+  orbitX = 14;
+  orbitY = -32;
   zoom = 1;
   applyOrbit();
   inspectBack?.focus();
