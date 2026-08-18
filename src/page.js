@@ -18,6 +18,11 @@ const CASE_STUDIES = [
     title: "Turning a credit card into a shareable product experience",
   },
   {
+    id: "slice-trust-activation",
+    href: "/work/slice-trust-activation.html",
+    title: "Designing Trust & Activation in a Credit Product",
+  },
+  {
     id: "prodigy-authoring",
     href: "/work/prodigy-authoring.html",
     title: "Cutting math question production time from 5 minutes to 1",

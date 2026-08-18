@@ -29,6 +29,7 @@ export default defineConfig({
         workArmory: resolve(__dirname, "work/winning-100cr-order.html"),
         workVida: resolve(__dirname, "work/vida-self-serve.html"),
         workSlice: resolve(__dirname, "work/slice-credit-card.html"),
+        workSliceTrust: resolve(__dirname, "work/slice-trust-activation.html"),
         workProdigy: resolve(__dirname, "work/prodigy-authoring.html"),
       },
     },
