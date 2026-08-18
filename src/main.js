@@ -304,37 +304,57 @@ shelfRight?.addEventListener("click", () => {
 shelfInspectBtn?.addEventListener("click", openInspect);
 inspectBack?.addEventListener("click", closeInspect);
 
-/* drag shelf horizontally */
+/* drag shelf horizontally — only after intentional drag, don't steal book clicks */
 let draggingShelf = false;
 let shelfStartX = 0;
 let shelfMoved = false;
+let shelfPointerId = null;
 
 shelfStack?.addEventListener("pointerdown", (event) => {
+  if (event.button !== 0) return;
+  // Allow starting a drag, but don't capture until moved
   draggingShelf = true;
   shelfMoved = false;
   shelfStartX = event.clientX;
-  shelfStack.setPointerCapture(event.pointerId);
+  shelfPointerId = event.pointerId;
 });
 
 shelfStack?.addEventListener("pointermove", (event) => {
-  if (!draggingShelf) return;
+  if (!draggingShelf || event.pointerId !== shelfPointerId) return;
   const dx = event.clientX - shelfStartX;
-  if (Math.abs(dx) > 40) {
+  if (!shelfMoved && Math.abs(dx) < 28) return;
+  if (!shelfMoved) {
     shelfMoved = true;
+    try {
+      shelfStack.setPointerCapture(event.pointerId);
+    } catch {
+      /* ignore */
+    }
+  }
+  if (Math.abs(dx) > 40) {
     index += dx < 0 ? 1 : -1;
     shelfStartX = event.clientX;
     renderShelf();
   }
 });
 
-shelfStack?.addEventListener("pointerup", (event) => {
+function endShelfDrag(event) {
+  if (!draggingShelf || event.pointerId !== shelfPointerId) return;
   draggingShelf = false;
   try {
     shelfStack.releasePointerCapture(event.pointerId);
   } catch {
     /* ignore */
   }
-});
+  // Keep shelfMoved true through the synthetic click, then clear
+  window.setTimeout(() => {
+    shelfMoved = false;
+  }, 0);
+  shelfPointerId = null;
+}
+
+shelfStack?.addEventListener("pointerup", endShelfDrag);
+shelfStack?.addEventListener("pointercancel", endShelfDrag);
 
 /* inspect orbit + zoom */
 inspectBook?.addEventListener("pointerdown", (event) => {
