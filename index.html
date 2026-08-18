@@ -424,169 +424,83 @@
         <details id="reading">
           <summary><h2>Reading</h2></summary>
           <p>
-            Currently reading. Drag the shelf to browse, click a book to open
-            it.
+            Books I’m reading right now. Drag the shelf to browse, click a book
+            to pick it up.
           </p>
 
-          <div class="shelf" id="bookshelf" data-index="0">
-            <div class="shelf-rail" id="shelf-rail">
-              <button
-                class="book"
-                type="button"
-                data-title="From Third World to First"
-                data-author="Lee Kuan Yew"
-                data-cover="/books/third-world-to-first.jpg"
-                style="--spine: #1f4d6e"
-              >
-                <span class="book-spine">From Third World to First</span>
-                <span
-                  class="book-cover"
-                  style="
-                    background-image: url('/books/third-world-to-first.jpg');
-                  "
-                ></span>
-              </button>
-              <button
-                class="book"
-                type="button"
-                data-title="Behave"
-                data-author="Robert Sapolsky"
-                data-cover="/books/behave.jpg"
-                style="--spine: #8b3a2a"
-              >
-                <span class="book-spine">Behave</span>
-                <span
-                  class="book-cover"
-                  style="background-image: url('/books/behave.jpg')"
-                ></span>
-              </button>
-              <button
-                class="book"
-                type="button"
-                data-title="The Book of Life"
-                data-author="J. Krishnamurti"
-                data-cover="/books/book-of-life.jpg"
-                style="--spine: #2f5d3a"
-              >
-                <span class="book-spine">The Book of Life</span>
-                <span
-                  class="book-cover"
-                  style="background-image: url('/books/book-of-life.jpg')"
-                ></span>
-              </button>
-              <button
-                class="book"
-                type="button"
-                data-title="Enshittification"
-                data-author="Cory Doctorow"
-                data-cover="/books/enshittification.jpg"
-                style="--spine: #c45c26"
-              >
-                <span class="book-spine">Enshittification</span>
-                <span
-                  class="book-cover"
-                  style="background-image: url('/books/enshittification.jpg')"
-                ></span>
-              </button>
-              <button
-                class="book"
-                type="button"
-                data-title="Based on a True Story"
-                data-author="Norm Macdonald"
-                data-cover="/books/based-on-a-true-story.jpg"
-                style="--spine: #222"
-              >
-                <span class="book-spine">Based on a True Story</span>
-                <span
-                  class="book-cover"
-                  style="
-                    background-image: url('/books/based-on-a-true-story.jpg');
-                  "
-                ></span>
-              </button>
-              <button
-                class="book"
-                type="button"
-                data-title="Seveneves"
-                data-author="Neal Stephenson"
-                data-cover="/books/seveneves.jpg"
-                style="--spine: #0d3b5c"
-              >
-                <span class="book-spine">Seveneves</span>
-                <span
-                  class="book-cover"
-                  style="background-image: url('/books/seveneves.jpg')"
-                ></span>
-              </button>
-            </div>
-            <div class="shelf-plank" aria-hidden="true"></div>
-            <div class="shelf-controls">
+          <div class="shelf-experience" id="shelf-experience">
+            <div class="shelf-stage" id="shelf-stage">
               <button
                 type="button"
-                class="shelf-arrow"
+                class="shelf-nav shelf-nav--left"
                 id="shelf-left"
-                aria-label="Scroll shelf left"
+                aria-label="Previous book"
               >
                 ←
               </button>
+
+              <div class="shelf-stack" id="shelf-stack" aria-live="polite"></div>
+
               <button
                 type="button"
-                class="shelf-arrow"
+                class="shelf-nav shelf-nav--right"
                 id="shelf-right"
-                aria-label="Scroll shelf right"
+                aria-label="Next book"
               >
                 →
               </button>
-            </div>
-          </div>
 
-          <div class="book-open" id="book-open" hidden>
-            <button type="button" class="book-open-back" id="book-open-back">
-              ← Back to shelf
-            </button>
-            <div class="book-open-stage">
-              <div class="book-open-cover-wrap" id="book-open-cover-wrap">
-                <img
-                  class="book-open-cover"
-                  id="book-open-cover"
-                  src=""
-                  alt=""
-                />
+              <div class="shelf-caption">
+                <div class="shelf-counter" id="shelf-counter">01 / 06</div>
+                <h3 class="shelf-title" id="shelf-title"></h3>
+                <p class="shelf-author" id="shelf-author"></p>
+                <button type="button" class="shelf-inspect" id="shelf-inspect">
+                  Inspect <span aria-hidden="true">↗</span>
+                </button>
               </div>
-              <div class="book-open-meta">
-                <h3 id="book-open-title"></h3>
-                <p id="book-open-author"></p>
-                <p class="book-open-hint">
-                  drag to tilt · esc to close
+
+              <div
+                class="shelf-ticks"
+                id="shelf-ticks"
+                role="tablist"
+                aria-label="Books"
+              ></div>
+            </div>
+
+            <div class="shelf-inspect-view" id="shelf-inspect-view" hidden>
+              <div class="inspect-viewer">
+                <div
+                  class="inspect-book"
+                  id="inspect-book"
+                  tabindex="0"
+                  aria-label="Drag to orbit book"
+                >
+                  <img id="inspect-cover" src="" alt="" />
+                </div>
+                <p class="inspect-hint">
+                  drag to orbit · scroll to zoom · esc to close
                 </p>
               </div>
+              <div class="inspect-panel">
+                <button type="button" class="inspect-back" id="inspect-back">
+                  ← Back to shelf
+                </button>
+                <h3 class="inspect-title" id="inspect-title"></h3>
+                <p class="inspect-author" id="inspect-author"></p>
+                <p class="inspect-summary" id="inspect-summary"></p>
+                <a
+                  class="inspect-goodreads"
+                  id="inspect-goodreads"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  >View on Goodreads <span aria-hidden="true">↗</span></a
+                >
+              </div>
             </div>
           </div>
 
-          <ul class="books books-fallback sr-only">
-            <li>
-              From Third World to First
-              <span class="author">— Lee Kuan Yew</span>
-            </li>
-            <li>
-              Behave <span class="author">— Robert Sapolsky</span>
-            </li>
-            <li>
-              The Book of Life
-              <span class="author">— J. Krishnamurti</span>
-            </li>
-            <li>
-              Enshittification
-              <span class="author">— Cory Doctorow</span>
-            </li>
-            <li>
-              Based on a True Story
-              <span class="author">— Norm Macdonald</span>
-            </li>
-            <li>
-              Seveneves <span class="author">— Neal Stephenson</span>
-            </li>
-          </ul>
+          <ul class="books books-fallback sr-only" id="books-fallback"></ul>
         </details>
       </main>
 

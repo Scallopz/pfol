@@ -9,6 +9,64 @@ const HELP_COPY = {
     "Zero-to-one marketing engines, field evangelism, and organic moments that compound without paid spend.",
 };
 
+const BOOKS = [
+  {
+    title: "From Third World to First",
+    author: "Lee Kuan Yew",
+    cover: "/books/third-world-to-first.jpg",
+    spine: "#1f4d6e",
+    goodreads: "https://www.goodreads.com/book/show/144409.From_Third_World_to_First",
+    summary:
+      "Singapore’s founding prime minister on how a resource-poor island became a first-world state — discipline, pragmatism, and nation-building without romance.",
+  },
+  {
+    title: "Behave",
+    author: "Robert Sapolsky",
+    cover: "/books/behave.jpg",
+    spine: "#8b3a2a",
+    goodreads: "https://www.goodreads.com/book/show/31170723-behave",
+    summary:
+      "A tour of human behavior from neurons to culture — why we do what we do, seconds to centuries before the act.",
+  },
+  {
+    title: "The Book of Life",
+    author: "J. Krishnamurti",
+    cover: "/books/book-of-life.jpg",
+    spine: "#2f5d3a",
+    goodreads: "https://www.goodreads.com/book/show/143880.The_Book_of_Life",
+    summary:
+      "Daily teachings on attention, fear, love, and freedom — less self-help, more noticing how the mind actually works.",
+  },
+  {
+    title: "Enshittification",
+    author: "Cory Doctorow",
+    cover: "/books/enshittification.jpg",
+    spine: "#c45c26",
+    goodreads: "https://www.goodreads.com/book/show/222376640-enshittification",
+    summary:
+      "How platforms decay — bait users, squeeze business customers, then extract until nothing’s left. A field guide to fighting it.",
+  },
+  {
+    title: "Based on a True Story",
+    author: "Norm Macdonald",
+    cover: "/books/based-on-a-true-story.jpg",
+    spine: "#222222",
+    goodreads: "https://www.goodreads.com/book/show/28686959-based-on-a-true-story",
+    summary:
+      "A fake memoir that’s somehow truer than most real ones — gambling, comedy, and Norm’s deadpan war on sincerity.",
+  },
+  {
+    title: "Seveneves",
+    author: "Neal Stephenson",
+    cover: "/books/seveneves.jpg",
+    spine: "#0d3b5c",
+    goodreads: "https://www.goodreads.com/book/show/22816087-seveneves",
+    summary:
+      "The moon blows up; humanity has two years to get off Earth. Hard SF about survival, orbital engineering, and what five thousand years later looks like.",
+  },
+];
+
+/* ——— Theme + help ——— */
 const themeToggle = document.getElementById("theme-toggle");
 const mainView = document.getElementById("main-view");
 const helpView = document.getElementById("help-view");
@@ -63,144 +121,238 @@ helpButtons.forEach((button) => {
   });
 });
 
-/* ——— Bookshelf ——— */
-const shelf = document.getElementById("bookshelf");
-const shelfRail = document.getElementById("shelf-rail");
+/* ——— Bookshelf (featured cover + spine stack → Inspect) ——— */
+const shelfStage = document.getElementById("shelf-stage");
+const shelfStack = document.getElementById("shelf-stack");
+const shelfTicks = document.getElementById("shelf-ticks");
+const shelfCounter = document.getElementById("shelf-counter");
+const shelfTitle = document.getElementById("shelf-title");
+const shelfAuthor = document.getElementById("shelf-author");
+const shelfInspectBtn = document.getElementById("shelf-inspect");
 const shelfLeft = document.getElementById("shelf-left");
 const shelfRight = document.getElementById("shelf-right");
-const bookOpen = document.getElementById("book-open");
-const bookOpenBack = document.getElementById("book-open-back");
-const bookOpenCover = document.getElementById("book-open-cover");
-const bookOpenCoverWrap = document.getElementById("book-open-cover-wrap");
-const bookOpenTitle = document.getElementById("book-open-title");
-const bookOpenAuthor = document.getElementById("book-open-author");
-const books = shelfRail ? [...shelfRail.querySelectorAll(".book")] : [];
+const inspectView = document.getElementById("shelf-inspect-view");
+const inspectBack = document.getElementById("inspect-back");
+const inspectBook = document.getElementById("inspect-book");
+const inspectCover = document.getElementById("inspect-cover");
+const inspectTitle = document.getElementById("inspect-title");
+const inspectAuthor = document.getElementById("inspect-author");
+const inspectSummary = document.getElementById("inspect-summary");
+const inspectGoodreads = document.getElementById("inspect-goodreads");
+const booksFallback = document.getElementById("books-fallback");
 
-let shelfOffset = 0;
-const SHELF_STEP = 72;
+let index = 0;
+let orbitX = 12;
+let orbitY = -18;
+let zoom = 1;
+let orbiting = false;
+let lastPointer = { x: 0, y: 0 };
 
-function clampShelf() {
-  if (!shelfRail || !shelf) return;
-  const max = Math.max(0, shelfRail.scrollWidth - shelf.clientWidth + 24);
-  shelfOffset = Math.min(0, Math.max(-max, shelfOffset));
-  shelfRail.style.transform = `translateX(${shelfOffset}px)`;
+function pad(n) {
+  return String(n).padStart(2, "0");
+}
+
+function renderFallback() {
+  if (!booksFallback) return;
+  booksFallback.innerHTML = BOOKS.map(
+    (b) =>
+      `<li>${b.title} <span class="author">— ${b.author}</span></li>`,
+  ).join("");
+}
+
+function renderTicks() {
+  if (!shelfTicks) return;
+  shelfTicks.innerHTML = BOOKS.map(
+    (_, i) =>
+      `<button type="button" class="shelf-tick${i === index ? " is-active" : ""}" data-i="${i}" aria-label="Book ${i + 1}" role="tab" aria-selected="${i === index}"></button>`,
+  ).join("");
+  shelfTicks.querySelectorAll(".shelf-tick").forEach((tick) => {
+    tick.addEventListener("click", () => {
+      index = Number(tick.dataset.i);
+      renderShelf();
+    });
+  });
+}
+
+function renderShelf() {
+  if (!shelfStack) return;
+  const total = BOOKS.length;
+  index = ((index % total) + total) % total;
+
+  shelfStack.innerHTML = "";
+  BOOKS.forEach((book, i) => {
+    const el = document.createElement("button");
+    el.type = "button";
+    el.className = "shelf-book";
+    el.style.setProperty("--spine", book.spine);
+    el.dataset.index = String(i);
+    el.setAttribute("aria-label", `${book.title} by ${book.author}`);
+
+    const relative = (i - index + total) % total;
+    el.dataset.relative = String(relative);
+
+    if (relative === 0) {
+      el.classList.add("is-active");
+      el.innerHTML = `<img class="shelf-book-cover" src="${book.cover}" alt="" />`;
+      el.style.zIndex = "20";
+      el.style.transform = "translateX(0) translateZ(36px) rotateY(-6deg)";
+    } else if (relative <= 4) {
+      el.classList.add("is-behind");
+      el.innerHTML = `<span class="shelf-book-spine">${book.title}</span>`;
+      el.style.zIndex = String(15 - relative);
+      const x = 10.2 + (relative - 1) * 2.35;
+      el.style.transform = `translateX(${x}rem)`;
+    } else {
+      el.classList.add("is-hidden");
+      el.hidden = true;
+    }
+
+    el.addEventListener("click", () => {
+      if (relative === 0) {
+        openInspect();
+      } else {
+        index = i;
+        renderShelf();
+      }
+    });
+
+    shelfStack.appendChild(el);
+  });
+
+  const current = BOOKS[index];
+  if (shelfCounter) {
+    shelfCounter.textContent = `${pad(index + 1)} / ${pad(total)}`;
+  }
+  if (shelfTitle) shelfTitle.textContent = current.title;
+  if (shelfAuthor) shelfAuthor.textContent = current.author;
+  renderTicks();
+}
+
+function openInspect() {
+  const book = BOOKS[index];
+  if (!inspectView || !shelfStage) return;
+  shelfStage.hidden = true;
+  inspectView.hidden = false;
+
+  if (inspectCover) {
+    inspectCover.src = book.cover;
+    inspectCover.alt = book.title;
+  }
+  if (inspectTitle) inspectTitle.textContent = book.title;
+  if (inspectAuthor) inspectAuthor.textContent = book.author;
+  if (inspectSummary) inspectSummary.textContent = book.summary;
+  if (inspectGoodreads) {
+    inspectGoodreads.href = book.goodreads;
+  }
+
+  orbitX = 10;
+  orbitY = -20;
+  zoom = 1;
+  applyOrbit();
+  inspectBack?.focus();
+}
+
+function closeInspect() {
+  if (!inspectView || !shelfStage) return;
+  inspectView.hidden = true;
+  shelfStage.hidden = false;
+  shelfInspectBtn?.focus();
+}
+
+function applyOrbit() {
+  if (!inspectBook) return;
+  inspectBook.style.transform = `rotateX(${orbitX}deg) rotateY(${orbitY}deg) scale(${zoom})`;
 }
 
 shelfLeft?.addEventListener("click", () => {
-  shelfOffset += SHELF_STEP * 2;
-  clampShelf();
+  index -= 1;
+  renderShelf();
 });
 
 shelfRight?.addEventListener("click", () => {
-  shelfOffset -= SHELF_STEP * 2;
-  clampShelf();
+  index += 1;
+  renderShelf();
 });
 
-/* drag to browse */
-let dragging = false;
-let dragStartX = 0;
-let dragStartOffset = 0;
-let moved = false;
+shelfInspectBtn?.addEventListener("click", openInspect);
+inspectBack?.addEventListener("click", closeInspect);
 
-shelfRail?.addEventListener("pointerdown", (event) => {
-  if (event.target.closest(".book") && event.pointerType === "mouse") {
-    // allow click; still track mild drag on shelf empty space
+/* drag shelf horizontally */
+let draggingShelf = false;
+let shelfStartX = 0;
+let shelfMoved = false;
+
+shelfStack?.addEventListener("pointerdown", (event) => {
+  draggingShelf = true;
+  shelfMoved = false;
+  shelfStartX = event.clientX;
+  shelfStack.setPointerCapture(event.pointerId);
+});
+
+shelfStack?.addEventListener("pointermove", (event) => {
+  if (!draggingShelf) return;
+  const dx = event.clientX - shelfStartX;
+  if (Math.abs(dx) > 40) {
+    shelfMoved = true;
+    index += dx < 0 ? 1 : -1;
+    shelfStartX = event.clientX;
+    renderShelf();
   }
-  dragging = true;
-  moved = false;
-  dragStartX = event.clientX;
-  dragStartOffset = shelfOffset;
-  shelfRail.setPointerCapture(event.pointerId);
-  shelfRail.classList.add("is-dragging");
 });
 
-shelfRail?.addEventListener("pointermove", (event) => {
-  if (!dragging) return;
-  const dx = event.clientX - dragStartX;
-  if (Math.abs(dx) > 4) moved = true;
-  shelfOffset = dragStartOffset + dx;
-  clampShelf();
-});
-
-function endDrag(event) {
-  if (!dragging) return;
-  dragging = false;
-  shelfRail?.classList.remove("is-dragging");
+shelfStack?.addEventListener("pointerup", (event) => {
+  draggingShelf = false;
   try {
-    shelfRail?.releasePointerCapture(event.pointerId);
+    shelfStack.releasePointerCapture(event.pointerId);
+  } catch {
+    /* ignore */
+  }
+});
+
+/* inspect orbit + zoom */
+inspectBook?.addEventListener("pointerdown", (event) => {
+  orbiting = true;
+  lastPointer = { x: event.clientX, y: event.clientY };
+  inspectBook.setPointerCapture(event.pointerId);
+  inspectBook.classList.add("is-dragging");
+});
+
+inspectBook?.addEventListener("pointermove", (event) => {
+  if (!orbiting) return;
+  const dx = event.clientX - lastPointer.x;
+  const dy = event.clientY - lastPointer.y;
+  lastPointer = { x: event.clientX, y: event.clientY };
+  orbitY += dx * 0.45;
+  orbitX -= dy * 0.35;
+  orbitX = Math.max(-35, Math.min(35, orbitX));
+  applyOrbit();
+});
+
+function endOrbit(event) {
+  if (!orbiting) return;
+  orbiting = false;
+  inspectBook?.classList.remove("is-dragging");
+  try {
+    inspectBook?.releasePointerCapture(event.pointerId);
   } catch {
     /* ignore */
   }
 }
 
-shelfRail?.addEventListener("pointerup", endDrag);
-shelfRail?.addEventListener("pointercancel", endDrag);
+inspectBook?.addEventListener("pointerup", endOrbit);
+inspectBook?.addEventListener("pointercancel", endOrbit);
 
-/* open book */
-let tiltX = 0;
-let tiltY = 0;
-let tilting = false;
-
-function openBook(book) {
-  if (!bookOpen || !bookOpenCover) return;
-  shelf?.setAttribute("hidden", "");
-  bookOpen.hidden = false;
-  bookOpenCover.src = book.dataset.cover || "";
-  bookOpenCover.alt = book.dataset.title || "";
-  if (bookOpenTitle) bookOpenTitle.textContent = book.dataset.title || "";
-  if (bookOpenAuthor) bookOpenAuthor.textContent = book.dataset.author || "";
-  tiltX = 0;
-  tiltY = 0;
-  applyTilt();
-  bookOpenBack?.focus();
-}
-
-function closeBook() {
-  if (!bookOpen) return;
-  bookOpen.hidden = true;
-  shelf?.removeAttribute("hidden");
-}
-
-function applyTilt() {
-  if (!bookOpenCoverWrap) return;
-  bookOpenCoverWrap.style.transform = `rotateY(${tiltY}deg) rotateX(${-tiltX}deg)`;
-}
-
-books.forEach((book) => {
-  book.addEventListener("click", (event) => {
-    if (moved) {
-      event.preventDefault();
-      return;
-    }
-    openBook(book);
-  });
-});
-
-bookOpenBack?.addEventListener("click", closeBook);
-
-bookOpenCoverWrap?.addEventListener("pointerdown", (event) => {
-  tilting = true;
-  bookOpenCoverWrap.setPointerCapture(event.pointerId);
-});
-
-bookOpenCoverWrap?.addEventListener("pointermove", (event) => {
-  if (!tilting) return;
-  const rect = bookOpenCoverWrap.getBoundingClientRect();
-  const cx = rect.left + rect.width / 2;
-  const cy = rect.top + rect.height / 2;
-  tiltY = ((event.clientX - cx) / rect.width) * 36;
-  tiltX = ((event.clientY - cy) / rect.height) * 24;
-  applyTilt();
-});
-
-bookOpenCoverWrap?.addEventListener("pointerup", (event) => {
-  tilting = false;
-  try {
-    bookOpenCoverWrap.releasePointerCapture(event.pointerId);
-  } catch {
-    /* ignore */
-  }
-});
+inspectBook?.addEventListener(
+  "wheel",
+  (event) => {
+    if (inspectView?.hidden) return;
+    event.preventDefault();
+    zoom += event.deltaY > 0 ? -0.06 : 0.06;
+    zoom = Math.max(0.75, Math.min(1.45, zoom));
+    applyOrbit();
+  },
+  { passive: false },
+);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
@@ -208,10 +360,22 @@ document.addEventListener("keydown", (event) => {
       closeHelp();
       return;
     }
-    if (bookOpen && !bookOpen.hidden) {
-      closeBook();
+    if (inspectView && !inspectView.hidden) {
+      closeInspect();
+      return;
     }
+  }
+  if (inspectView && !inspectView.hidden) return;
+  if (!shelfStage || shelfStage.hidden) return;
+  if (event.key === "ArrowLeft") {
+    index -= 1;
+    renderShelf();
+  }
+  if (event.key === "ArrowRight") {
+    index += 1;
+    renderShelf();
   }
 });
 
-window.addEventListener("resize", clampShelf);
+renderFallback();
+renderShelf();
