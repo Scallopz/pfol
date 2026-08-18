@@ -58,6 +58,24 @@ const BOOKS = [
     summary:
       "The moon blows up; humanity has two years to get off Earth. Hard SF about survival, orbital engineering, and what five thousand years later looks like.",
   },
+  {
+    title: "Children of Time",
+    author: "Adrian Tchaikovsky",
+    cover: "/books/children-of-time.jpg",
+    spine: "#1a5c4a",
+    goodreads: "https://www.goodreads.com/book/show/25499718-children-of-time",
+    summary:
+      "Humanity flees a dying Earth for a terraformed world — only to find it already claimed by a civilization that evolved without us.",
+  },
+  {
+    title: "Abundance",
+    author: "Ezra Klein & Derek Thompson",
+    cover: "/books/abundance.jpg",
+    spine: "#c4a35a",
+    goodreads: "https://www.goodreads.com/book/show/176444106-abundance",
+    summary:
+      "A call to rebuild a politics of plenty — why we stopped building housing, energy, and progress, and how to start again.",
+  },
 ];
 
 /* ——— Bookshelf (featured cover + spine stack → Inspect) ——— */
