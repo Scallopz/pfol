@@ -324,6 +324,7 @@ header {
   height: 120px;
   border-radius: 9999px;
   object-fit: cover;
+  object-position: center 18%;
   display: block;
 }
 
