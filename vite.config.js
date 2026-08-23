@@ -27,6 +27,7 @@ export default defineConfig({
           "writing/defence-expo-outreach-playbook.html",
         ),
         workArmory: resolve(__dirname, "work/winning-100cr-order.html"),
+        workSurge: resolve(__dirname, "work/surge-operator-interface.html"),
         workVida: resolve(__dirname, "work/vida-self-serve.html"),
         workSlice: resolve(__dirname, "work/slice-credit-card.html"),
         workSliceTrust: resolve(__dirname, "work/slice-trust-activation.html"),

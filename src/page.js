@@ -1,37 +1,11 @@
 import "./style.css";
 import { initThemeToggle } from "./theme.js";
-
-const CASE_STUDIES = [
-  {
-    id: "winning-100cr-order",
-    href: "/work/winning-100cr-order.html",
-    title: "Winning a ₹100Cr order with no paid marketing",
-  },
-  {
-    id: "vida-self-serve",
-    href: "/work/vida-self-serve.html",
-    title: "Turning a service into a product enterprises actually use",
-  },
-  {
-    id: "slice-credit-card",
-    href: "/work/slice-credit-card.html",
-    title: "Turning a credit card into a shareable product experience",
-  },
-  {
-    id: "slice-trust-activation",
-    href: "/work/slice-trust-activation.html",
-    title: "Designing Trust & Activation in a Credit Product",
-  },
-  {
-    id: "prodigy-authoring",
-    href: "/work/prodigy-authoring.html",
-    title: "Cutting math question production time from 5 minutes to 1",
-  },
-];
+import { CASE_STUDIES, tagsMarkup } from "./case-studies.js";
 
 initThemeToggle();
 initShare();
 initNextCaseStudy();
+renderCaseTags();
 
 function initShare() {
   const buttons = document.querySelectorAll("[data-share]");
@@ -83,4 +57,16 @@ function initNextCaseStudy() {
     link.href = pick.href;
     link.setAttribute("aria-label", `View next case study: ${pick.title}`);
   });
+}
+
+function renderCaseTags() {
+  const host = document.querySelector("[data-case-tags]");
+  if (!host) return;
+
+  const currentId =
+    document.querySelector("[data-case-study]")?.dataset.caseStudy || "";
+  const study = CASE_STUDIES.find((item) => item.id === currentId);
+  if (!study) return;
+
+  host.outerHTML = tagsMarkup(study.tags);
 }

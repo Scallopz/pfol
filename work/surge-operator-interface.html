@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Designing an interface for war — Aditya Sharma on SURGE at Armory"
+    />
+    <meta name="author" content="Aditya Sharma" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Designing an interface for war — Aditya Sharma</title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var system = window.matchMedia("(prefers-color-scheme: dark)");
+        var theme = stored || (system.matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-base"></div>
+      <div class="ambient-orb ambient-orb--a"></div>
+      <div class="ambient-orb ambient-orb--b"></div>
+      <div class="ambient-orb ambient-orb--c"></div>
+      <div class="ambient-orb ambient-orb--d"></div>
+      <div class="ambient-noise"></div>
+    </div>
+
+    <article class="page article" data-case-study="surge-operator-interface">
+      <header class="article-top">
+        <a class="article-back" href="/#work">← Selected Work</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="icon-light">☀</span>
+          <span class="icon-dark">☾</span>
+        </button>
+      </header>
+
+      <p class="article-kicker">Selected Work · Armory · Product Design</p>
+      <h1>Designing an interface for war</h1>
+      <div class="case-tags" data-case-tags></div>
+      <p class="article-dek">
+        Designed the SURGE operator interface from scratch — little published
+        precedent, validated with soldiers at expos because traditional user
+        testing isn’t available when your users are on active duty.
+      </p>
+
+      <div class="article-body">
+        <p>
+          At Armory, we build counter-drone systems. Our first product, SURGE,
+          runs on Samaritan OS. The backend that handles compute and the
+          frontend an operator uses to detect a drone, point an antenna at it,
+          and jam it. I designed the operator interface from scratch. There is
+          no meaningful precedent for this in Indian defence, and very little
+          published reference internationally. Everything had to be reasoned
+          from first principles and validated with soldiers at expos, because
+          traditional user testing isn't available when your users are on active
+          duty.
+        </p>
+
+        <h2>Decisions that mattered</h2>
+
+        <p><strong>1. Showing altitude on a 2D screen.</strong></p>
+        <p>
+          A drone's height is critical — you can't jam what you can't point at —
+          but a tablet is flat. Every reference I could find either abstracted
+          altitude into a number or used a second view, both of which are too
+          slow for a war-time operator. I took the solution from FPS games. Call
+          of Duty and Counter-Strike show elevation on their minimaps through
+          position and marker treatment, and operators intuit it instantly
+          because the pattern is familiar. On the SURGE radar I designed a set
+          of concentric circles with the operator at the center and I let the
+          operator tilt the tablet to move the radar circle up or down using the
+          built-in gyroscope. Tilt up, the antenna points up. It removes a
+          decision layer and turns altitude into a physical gesture instead of a
+          menu.
+        </p>
+
+        <p><strong>2. Offset over calibration.</strong></p>
+        <p>
+          GPS drifts. In peacetime, you have the convenience to calibrate but in
+          a war-time scenario, you don't have three minutes to calibrate a
+          compass while a hostile drone is inbound. I added a manual offset so
+          that the operator sees the discrepancy, dials in the correction, and
+          moves on. It's a small feature but it came directly from watching how
+          soldiers actually behaved at demos: they wanted to fix the symptom and
+          not the system.
+        </p>
+
+        <p><strong>3. Three modes for one job.</strong></p>
+        <p>
+          Map, radar, and jammer. Each mode is optimised for a different
+          decision: situational awareness, threat prioritisation, engagement, and
+          the operator switches by task rather than by preference. Same
+          underlying data but with three different views. Light and dark mode are
+          separate from this and driven by operational style but not aesthetics:
+          dark for night operations and covered positions, light for daylight and
+          inside vehicles.
+        </p>
+
+        <p><strong>4. Friendly-drone tagging.</strong></p>
+        <p>
+          Operators can pre-register their own drones by signal ID so the system
+          doesn't flag them as threats during an engagement. It sounds obvious
+          in hindsight but it wasn't in the workflow when I inherited the
+          problem.
+        </p>
+
+        <p><strong>5. In-app tutorials.</strong></p>
+        <p>
+          A new soldier can learn the system inside the app without a manual or
+          a trainer. First of its kind in Indian defence, as far as I've been
+          able to confirm. Multilingual too, also first of its kind. Both came
+          from the same observation at demos: the operator using the system
+          isn't always the one who was trained on it.
+        </p>
+
+        <h2>What I'd do differently</h2>
+        <p>
+          Prototyping the UI in Claude Design let engineers work in parallel
+          from day one instead of waiting on hand-built components. That worked.
+          What I'd change is how early I involved soldiers in the interaction
+          model. I validated the visual language early but held the interaction
+          decisions closer than I needed to. The gyroscope-elevation idea would
+          have landed a full sprint sooner if I'd tested it at the first expo
+          instead of the third.
+        </p>
+
+        <h2>Results</h2>
+        <ul>
+          <li>Live in hundreds of military units.</li>
+          <li>
+            Contributed to Armory's ₹100Cr+ Ministry of Defence order.
+          </li>
+          <li>
+            First Indian counter-drone system with in-app tutorials and
+            multilingual support.
+          </li>
+        </ul>
+      </div>
+
+      <div class="article-actions">
+        <a class="case-cta" data-next-case href="#">View next case study</a>
+      </div>
+
+      <footer class="article-footer">
+        <a href="/#work">← Back to selected work</a>
+        <a href="mailto:icaditya@hotmail.com">Email</a>
+      </footer>
+    </article>
+
+    <script type="module" src="/src/page.js"></script>
+  </body>
+</html>

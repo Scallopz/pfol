@@ -1,7 +1,25 @@
 import "./style.css";
 import { initThemeToggle } from "./theme.js";
+import { CASE_STUDIES, tagsMarkup } from "./case-studies.js";
 
 initThemeToggle();
+renderWorkList();
+
+function renderWorkList() {
+  const list = document.getElementById("work-list");
+  if (!list) return;
+
+  list.innerHTML = CASE_STUDIES.map(
+    (study) => `
+      <a class="project-item" href="${study.href}">
+        <span class="project-item__title">
+          <strong>${study.title}</strong>
+          ${tagsMarkup(study.tags)}
+        </span>
+        <span>${study.blurb}</span>
+      </a>`,
+  ).join("");
+}
 
 const BOOKS = [
   {

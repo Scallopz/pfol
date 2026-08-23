@@ -628,9 +628,40 @@ a.project-item:hover {
   font-size: 0.95rem;
 }
 
-.project-item span {
+.project-item__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.55rem;
+}
+
+.project-item__title strong {
+  color: var(--text);
+}
+
+.project-item > span:last-child {
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+
+.case-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.45rem;
+  align-items: center;
+}
+
+.case-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.article .case-tags {
+  display: flex;
+  margin: 0.15rem 0 1rem;
 }
 
 footer {
