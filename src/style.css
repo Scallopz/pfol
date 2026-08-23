@@ -781,14 +781,14 @@ footer a:hover {
 }
 
 .picture-wall__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.75rem 1.35rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
 
 .polaroid {
   margin: 0;
+  width: 100%;
   background: #faf6f0;
   border: 1px solid rgba(42, 36, 32, 0.08);
   box-shadow:
@@ -808,24 +808,16 @@ html[data-theme="dark"] .polaroid {
     0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-.polaroid:nth-child(1) {
-  transform: rotate(-1.1deg);
+.polaroid:nth-child(odd) {
+  transform: rotate(-0.55deg);
 }
 
-.polaroid:nth-child(2) {
-  transform: rotate(1.25deg);
-}
-
-.polaroid:nth-child(3) {
-  transform: rotate(0.85deg);
-}
-
-.polaroid:nth-child(4) {
-  transform: rotate(-0.9deg);
+.polaroid:nth-child(even) {
+  transform: rotate(0.55deg);
 }
 
 .polaroid:hover {
-  transform: rotate(0deg) translateY(-4px);
+  transform: rotate(0deg) translateY(-3px);
   box-shadow:
     0 1px 0 rgba(42, 36, 32, 0.05),
     0 16px 36px rgba(42, 36, 32, 0.12);
@@ -838,17 +830,15 @@ html[data-theme="dark"] .polaroid:hover {
 }
 
 .polaroid__frame {
-  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: color-mix(in srgb, var(--text-secondary) 12%, transparent);
+  line-height: 0;
 }
 
 .polaroid__frame img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
 }
 
 .polaroid__caption {
@@ -862,10 +852,7 @@ html[data-theme="dark"] .polaroid:hover {
 
 @media (max-width: 640px) {
   .picture-wall__grid {
-    grid-template-columns: 1fr;
-    max-width: 22rem;
-    margin-inline: auto;
-    gap: 1.5rem;
+    gap: 1.35rem;
   }
 
   .polaroid:nth-child(n) {
@@ -873,7 +860,7 @@ html[data-theme="dark"] .polaroid:hover {
   }
 
   .polaroid:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
   }
 }
 
