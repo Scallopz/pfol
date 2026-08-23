@@ -766,6 +766,104 @@ footer a:hover {
   align-items: center;
 }
 
+/* ——— Case study picture wall (polaroids) ——— */
+.picture-wall {
+  margin-top: 2.75rem;
+  padding-top: 0.25rem;
+}
+
+.picture-wall__heading {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.35rem;
+}
+
+.picture-wall__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.polaroid {
+  margin: 0;
+  width: 100%;
+  background: #faf6f0;
+  border: 1px solid rgba(42, 36, 32, 0.08);
+  box-shadow:
+    0 1px 0 rgba(42, 36, 32, 0.04),
+    0 10px 28px rgba(42, 36, 32, 0.08);
+  padding: 0.7rem 0.7rem 0;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+html[data-theme="dark"] .polaroid {
+  background: #2c2724;
+  border-color: rgba(240, 235, 228, 0.1);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.25),
+    0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.polaroid:nth-child(odd) {
+  transform: rotate(-0.55deg);
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(0.55deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow:
+    0 1px 0 rgba(42, 36, 32, 0.05),
+    0 16px 36px rgba(42, 36, 32, 0.12);
+}
+
+html[data-theme="dark"] .polaroid:hover {
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.3),
+    0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.polaroid__frame {
+  overflow: hidden;
+  background: color-mix(in srgb, var(--text-secondary) 12%, transparent);
+  line-height: 0;
+}
+
+.polaroid__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.polaroid__caption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  padding: 0.85rem 0.35rem 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .picture-wall__grid {
+    gap: 1.35rem;
+  }
+
+  .polaroid:nth-child(n) {
+    transform: none;
+  }
+
+  .polaroid:hover {
+    transform: translateY(-2px);
+  }
+}
+
 .share-btn {
   appearance: none;
   background: var(--surface);
