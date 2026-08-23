@@ -8,20 +8,20 @@
  */
 export const CASE_STUDIES = [
   {
-    id: "winning-100cr-order",
-    href: "/work/winning-100cr-order.html",
-    title: "Winning a ₹100Cr order with no paid marketing",
-    blurb:
-      "Raised Armory’s marketing from 0 to present day — field evangelism, narrative, and assets that helped land Ministry of Defence procurement.",
-    tags: ["Brand", "Marketing"],
-  },
-  {
     id: "surge-operator-interface",
     href: "/work/surge-operator-interface.html",
     title: "Designing an interface for war",
     blurb:
       "Designed SURGE’s operator interface from first principles — altitude on a 2D screen, wartime offsets, and in-app tutorials for soldiers.",
     tags: ["ProductDesign"],
+  },
+  {
+    id: "winning-100cr-order",
+    href: "/work/winning-100cr-order.html",
+    title: "Winning a ₹100Cr order with no paid marketing",
+    blurb:
+      "Raised Armory’s marketing from 0 to present day — field evangelism, narrative, and assets that helped land Ministry of Defence procurement.",
+    tags: ["Brand", "Marketing"],
   },
   {
     id: "vida-self-serve",
