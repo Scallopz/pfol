@@ -48,14 +48,14 @@ function initNextCaseStudy() {
 
   const currentId =
     document.querySelector("[data-case-study]")?.dataset.caseStudy || "";
-  const options = CASE_STUDIES.filter((study) => study.id !== currentId);
-  if (!options.length) return;
+  const index = CASE_STUDIES.findIndex((study) => study.id === currentId);
+  if (index === -1 || CASE_STUDIES.length < 2) return;
 
-  const pick = options[Math.floor(Math.random() * options.length)];
+  const next = CASE_STUDIES[(index + 1) % CASE_STUDIES.length];
 
   links.forEach((link) => {
-    link.href = pick.href;
-    link.setAttribute("aria-label", `View next case study: ${pick.title}`);
+    link.href = next.href;
+    link.setAttribute("aria-label", `Read next case study: ${next.title}`);
   });
 }
 

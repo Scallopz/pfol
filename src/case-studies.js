@@ -34,9 +34,9 @@ export const CASE_STUDIES = [
   {
     id: "slice-credit-card",
     href: "/work/slice-credit-card.html",
-    title: "Turning a credit card into a shareable product experience",
+    title: "Making people want to unbox a credit card",
     blurb:
-      "Launched Slice’s credit card with an organic viral unboxing strategy — and killed the shipping envelope forever.",
+      "Made the case that the Slice card experience should begin at the letterbox — packaging as product, not logistics.",
     tags: ["Brand", "Marketing"],
   },
   {
